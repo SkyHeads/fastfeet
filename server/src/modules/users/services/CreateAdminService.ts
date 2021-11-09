@@ -1,5 +1,7 @@
 import { hash } from 'bcrypt';
 
+import AppError from '@shared/errors/AppError';
+
 import { Admin } from '../infra/typeorm/entities/Admin';
 import { IUsersRepository } from '../repositories/IUsersRepository';
 
@@ -16,7 +18,7 @@ class CreateAdminService {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
     if (checkUserExists) {
-      throw new Error('Email address already used.');
+      throw new AppError('Email address already used.');
     }
 
     const passwordHashed = await hash(password, 8);
