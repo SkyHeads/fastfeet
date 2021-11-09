@@ -11,4 +11,4 @@ const PORT = 3333;
 
 app.use(express.json());
 app.use(routes);
-app.listen(PORT, () => console.log(`SERVER STARTED ON PORT ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 SERVER STARTED ON PORT ${PORT}`));
